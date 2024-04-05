@@ -1,10 +1,7 @@
 package com.example.Login.controller;
 import com.example.Login.model.userRegistration;
 import com.example.Login.service.service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/registration")
@@ -15,11 +12,14 @@ public class registrationControl {
         this.service = service;
     }
 
-    public userRegistration getdetails(){
-       return null;
-    }
     @PostMapping
     public void postDetails(@RequestBody userRegistration userDetails){
         service.postDetails(userDetails);
     }
+    @GetMapping("/{username}")
+
+    public userRegistration getDetails(@PathVariable  String username){
+      return service.getDetails(username);
+    }
 }
+

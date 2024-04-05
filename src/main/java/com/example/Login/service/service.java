@@ -2,6 +2,7 @@ package com.example.Login.service;
 
 import com.example.Login.model.userRegistration;
 import com.example.Login.repository.repository;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +12,10 @@ public class service {
     public service(com.example.Login.repository.repository repository) {
         this.repository = repository;
     }
-
+    public userRegistration getDetails(String user){
+        userRegistration Requser = repository.findByUserName(user);
+        return Requser;
+    }
     public void postDetails(userRegistration userDetails){
         repository.insert(userDetails);
     }
