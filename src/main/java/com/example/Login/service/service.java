@@ -13,10 +13,16 @@ public class service {
         this.repository = repository;
     }
     public userRegistration getDetails(String user){
-        userRegistration Requser = repository.findByUserName(user);
+        userRegistration Requser = repository.findByMobilePhone(user);
         return Requser;
     }
     public void postDetails(userRegistration userDetails){
-        repository.insert(userDetails);
+        try{
+            if(getDetails(userDetails.getMobilePhone())==null){
+                repository.insert(userDetails);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

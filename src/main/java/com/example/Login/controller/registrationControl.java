@@ -4,7 +4,7 @@ import com.example.Login.service.service;
 import org.springframework.web.bind.annotation.*;
 import com.example.Login.model.userRegistration;
 @RestController
-@RequestMapping("/api/registration")
+@RequestMapping("/api/registrate")
 public class registrationControl {
     private final service service;
 
@@ -14,20 +14,15 @@ public class registrationControl {
 
     @PostMapping
     public void postDetails(
-            @RequestParam(name = "userName") String userName,
-            @RequestParam(name = "email") String email,
-            @RequestParam(name = "password") String password,
-            @RequestParam(name = "mobilePhone") int mobilePhone,
-            @RequestParam(name = "fullName") String fullName) {
+            @RequestParam(name = "userName",required = false, defaultValue = "") String userName,
+            @RequestParam(name = "email",required = false, defaultValue = "") String email,
+            @RequestParam(name = "mobilePhone",required = true, defaultValue = "") String mobilePhone){
 
         // Create a userRegistration object from the received query parameters
         userRegistration userDetails = new userRegistration();
         userDetails.setUserName(userName);
         userDetails.setEmail(email);
-        userDetails.setPassword(password);
         userDetails.setMobilePhone(mobilePhone);
-        userDetails.setFullName(fullName);
-
         // Call the service method with the userRegistration object
         service.postDetails(userDetails);
     }
