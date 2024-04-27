@@ -1,5 +1,6 @@
 package com.example.Login.service;
 
+import com.example.Login.model.addDepartment;
 import com.example.Login.model.userRegistration;
 import com.example.Login.repository.repository;
 import org.springframework.data.domain.Example;
@@ -22,6 +23,15 @@ public class service {
                 repository.insert(userDetails);
             }
         } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void addDetails(addDepartment userDetails){
+
+        try{
+                repository.insert(userDetails);
+            }
+        catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

@@ -1,5 +1,7 @@
 package com.example.Login.model;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "Departments")
 public class addDepartment {
     private String departmentName,paper;
 
