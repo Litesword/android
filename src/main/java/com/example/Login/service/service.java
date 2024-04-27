@@ -1,5 +1,5 @@
 package com.example.Login.service;
-
+import com.example.Login.repository.repo;
 import com.example.Login.model.addDepartment;
 import com.example.Login.model.userRegistration;
 import com.example.Login.repository.repository;
@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class service {
     private final repository repository;
-
-    public service(com.example.Login.repository.repository repository) {
+    private final repo repo;
+    public service(com.example.Login.repository.repository repository, com.example.Login.repository.repo repo) {
         this.repository = repository;
+        this.repo = repo;
     }
     public userRegistration getDetails(String user){
         userRegistration Requser = repository.findByMobilePhone(user);
@@ -29,7 +30,7 @@ public class service {
     public void addDetails(addDepartment userDetails){
 
         try{
-                repository.insert(userDetails);
+                repo.insert(userDetails);
             }
         catch (Exception e) {
             throw new RuntimeException(e);
