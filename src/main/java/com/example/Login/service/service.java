@@ -6,6 +6,8 @@ import com.example.Login.repository.repository;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class service {
     private final repository repository;
@@ -35,5 +37,11 @@ public class service {
         catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public List<addDepartment> getDepartments(String username) {
+       return  repo.findAllByPaper(username);
+
     }
 }
