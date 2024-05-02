@@ -16,7 +16,7 @@ public class registrationControl {
     public void postDetails(
             @RequestParam(name = "userName",required = false, defaultValue = "") String userName,
             @RequestParam(name = "email",required = false, defaultValue = "") String email,
-            @RequestParam(name = "mobilePhone",required = true, defaultValue = "") String mobilePhone){
+            @RequestParam(name = "mobilePhone",required = true) String mobilePhone){
 
         // Create a userRegistration object from the received query parameters
         userRegistration userDetails = new userRegistration();
