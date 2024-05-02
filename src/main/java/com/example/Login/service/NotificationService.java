@@ -4,7 +4,7 @@ import com.example.Login.model.Notification;
 import com.example.Login.repository.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.List;
 @Service
 public class NotificationService {
 
@@ -18,5 +18,9 @@ public class NotificationService {
 
     public Notification sendNotification(Notification notification) {
         return notificationRepository.save(notification);
+    }
+
+    public List<Notification> getAllNotifications() {
+        return notificationRepository.findAll();
     }
 }
