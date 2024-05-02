@@ -4,7 +4,8 @@ import com.example.Login.model.userRegistration;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface repository extends MongoRepository<userRegistration, String>{
-      userRegistration findByMobilePhone(String userName);
+      userRegistration findByUserName(String userName);
 
+      userRegistration findByMobilePhone(String user);
 }
 

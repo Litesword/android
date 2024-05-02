@@ -1,4 +1,6 @@
 package com.example.Login.service;
+import com.example.Login.model.Admin;
+import com.example.Login.repository.AdminRepo;
 import com.example.Login.repository.repo;
 import com.example.Login.model.addDepartment;
 import com.example.Login.model.userRegistration;
@@ -12,9 +14,11 @@ import java.util.List;
 public class service {
     private final repository repository;
     private final repo repo;
-    public service(com.example.Login.repository.repository repository, com.example.Login.repository.repo repo) {
+    private final AdminRepo AdminRepo;
+    public service(com.example.Login.repository.repository repository, com.example.Login.repository.repo repo, com.example.Login.repository.AdminRepo adminRepo) {
         this.repository = repository;
         this.repo = repo;
+        this.AdminRepo = adminRepo;
     }
     public userRegistration getDetails(String user){
         userRegistration Requser = repository.findByMobilePhone(user);
@@ -43,5 +47,9 @@ public class service {
     public List<addDepartment> getDepartments(String username) {
        return  repo.findAllByPaper(username);
 
+    }
+
+    public Admin getAdmin(String username){
+        return AdminRepo.findByUsername(username);
     }
 }

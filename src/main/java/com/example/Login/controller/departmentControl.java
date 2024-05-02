@@ -16,8 +16,8 @@ public class departmentControl {
 
 
     @PostMapping
-    public void postDetails(@RequestBody addDepartment userDetails) {
-        service.addDetails(userDetails);
+    public void postDetails(@RequestBody addDepartment department) {
+        service.addDetails(department);
 
     }
     @GetMapping("/{departmentName}")
