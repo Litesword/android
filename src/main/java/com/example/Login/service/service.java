@@ -24,6 +24,10 @@ public class service {
         userRegistration Requser = repository.findByMobilePhone(user);
         return Requser;
     }
+    public userRegistration deleteDetails(String user){
+        userRegistration Requser = repository.deleteByMobilePhone(user);
+        return Requser;
+    }
     public void postDetails(userRegistration userDetails){
         try{
             if(getDetails(userDetails.getMobilePhone())==null){
