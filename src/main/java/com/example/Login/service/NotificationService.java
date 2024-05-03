@@ -5,6 +5,7 @@ import com.example.Login.repository.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Collections;
 @Service
 public class NotificationService {
 
@@ -21,6 +22,8 @@ public class NotificationService {
     }
 
     public List<Notification> getAllNotifications() {
-        return notificationRepository.findAll();
+        List<Notification> notifications = notificationRepository.findAll();
+        Collections.reverse(notifications); // Reversing the list to implement LIFO order
+        return notifications;
     }
 }
