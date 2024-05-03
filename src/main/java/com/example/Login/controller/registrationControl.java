@@ -27,10 +27,16 @@ public class registrationControl {
         service.postDetails(userDetails);
     }
 
-    @GetMapping("/{username}")
+    @GetMapping("/{mobile}")
 
-    public userRegistration getDetails(@PathVariable  String username){
-      return service.getDetails(username);
+    public userRegistration getDetails(@PathVariable  String mobile){
+      return service.getDetails(mobile);
+    }
+    @DeleteMapping("/{mobile}")
+
+    public userRegistration deleteDetails(@PathVariable  String mobile){
+        return service.deleteDetails(mobile);
     }
 }
+
 

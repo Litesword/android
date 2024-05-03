@@ -7,5 +7,7 @@ public interface repository extends MongoRepository<userRegistration, String>{
       userRegistration findByUserName(String userName);
 
       userRegistration findByMobilePhone(String user);
+
+      userRegistration deleteByMobilePhone(String user);
 }
 
